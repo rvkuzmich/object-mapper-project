@@ -53,13 +53,4 @@ public class OrderController {
         @RequestParam String status) {
         return ResponseEntity.ok(orderService.updateOrderStatus(id, status));
     }
-
-    @GetMapping("/{id}/json")
-    public ResponseEntity<String> getOrderAsJson(@PathVariable Long id) {
-        OrderResponseDto order = orderService.getOrderById(id);
-        String json = orderService.convertToJson(orderService.convertFromJson(
-            "{}"
-        ));
-        return ResponseEntity.ok(json);
-    }
 }
